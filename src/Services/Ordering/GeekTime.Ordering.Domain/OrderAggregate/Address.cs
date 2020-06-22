@@ -1,7 +1,5 @@
 ﻿using GeekTime.Domain;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace GeekTime.Ordering.Domain.OrderAggregate
 {

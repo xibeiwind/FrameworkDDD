@@ -1,13 +1,13 @@
 ﻿using GeekTime.Domain;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace GeekTime.Infrastructure.Core
 {
-    public abstract class Repository<TEntity, TDbContext> : IRepository<TEntity> where TEntity : Entity, IAggregateRoot where TDbContext : EFContext
+    public abstract class Repository<TEntity, TDbContext>
+        : IRepository<TEntity>
+        where TEntity : Entity, IAggregateRoot
+        where TDbContext : DomainDbContext
     {
         protected virtual TDbContext DbContext { get; set; }
 
@@ -50,7 +50,7 @@ namespace GeekTime.Infrastructure.Core
     }
 
 
-    public abstract class Repository<TEntity, TKey, TDbContext> : Repository<TEntity, TDbContext>, IRepository<TEntity, TKey> where TEntity : Entity<TKey>, IAggregateRoot where TDbContext : EFContext
+    public abstract class Repository<TEntity, TKey, TDbContext> : Repository<TEntity, TDbContext>, IRepository<TEntity, TKey> where TEntity : Entity<TKey>, IAggregateRoot where TDbContext : DomainDbContext
     {
         public Repository(TDbContext context) : base(context)
         {

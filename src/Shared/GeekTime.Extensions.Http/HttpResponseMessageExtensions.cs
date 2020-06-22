@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Newtonsoft.Json;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 namespace System.Net.Http
 {
     public static class HttpResponseMessageExtensions

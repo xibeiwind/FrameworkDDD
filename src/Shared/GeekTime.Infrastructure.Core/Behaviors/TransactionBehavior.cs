@@ -1,5 +1,4 @@
-﻿using DotNetCore.CAP;
-using GeekTime.Infrastructure.Core.Extensions;
+﻿using GeekTime.Infrastructure.Core.Extensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -8,7 +7,9 @@ using System.Threading;
 using System.Threading.Tasks;
 namespace GeekTime.Infrastructure.Core.Behaviors
 {
-    public class TransactionBehavior<TDbContext, TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TDbContext : EFContext
+    public class TransactionBehavior<TDbContext, TRequest, TResponse>
+        : IPipelineBehavior<TRequest, TResponse>
+        where TDbContext : DomainDbContext
     {
         ILogger _logger;
         TDbContext _dbContext;
@@ -19,7 +20,10 @@ namespace GeekTime.Infrastructure.Core.Behaviors
         }
 
 
-        public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
+        public async Task<TResponse> Handle(
+            TRequest request,
+            CancellationToken cancellationToken,
+            RequestHandlerDelegate<TResponse> next)
         {
             var response = default(TResponse);
             var typeName = request.GetGenericTypeName();

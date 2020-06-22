@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using DotNetCore.CAP;
+using GeekTime.Domain;
+using GeekTime.Ordering.API.Application.IntegrationEvents;
+using GeekTime.Ordering.Domain.Events;
 using System.Threading;
 using System.Threading.Tasks;
-using GeekTime.Domain;
-using GeekTime.Ordering.Domain.Events;
-using DotNetCore.CAP;
-using GeekTime.Ordering.API.Application.IntegrationEvents;
 
 namespace GeekTime.Ordering.API.Application.DomainEventHandlers
 {

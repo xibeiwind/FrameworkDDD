@@ -1,13 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Com.Ctrip.Framework.Apollo;
+using Com.Ctrip.Framework.Apollo.Logging;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Com.Ctrip.Framework.Apollo;
-using Com.Ctrip.Framework.Apollo.Logging;
 
 namespace GeekTime.Mobile.Gateway
 {

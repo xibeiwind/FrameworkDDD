@@ -1,5 +1,3 @@
-using System;
-
 namespace GeekTime.BadSite.Models
 {
     public class ErrorViewModel

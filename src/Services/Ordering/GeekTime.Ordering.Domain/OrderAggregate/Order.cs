@@ -1,8 +1,5 @@
 ﻿using GeekTime.Domain;
 using GeekTime.Ordering.Domain.Events;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GeekTime.Ordering.Domain.OrderAggregate
 {
@@ -29,14 +26,10 @@ namespace GeekTime.Ordering.Domain.OrderAggregate
             this.AddDomainEvent(new OrderCreatedDomainEvent(this));
         }
 
-
         public void ChangeAddress(Address address)
         {
             this.Address = address;
             //this.AddDomainEvent(new OrderAddressChangedDomainEvent(this));
         }
-
-
-
     }
 }

@@ -7,9 +7,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GeekTime.Ordering.Infrastructure
 {
-    public class OrderingContext : EFContext
+    public class OrderingDbContext : DomainDbContext
     {
-        public OrderingContext(DbContextOptions options, IMediator mediator, ICapPublisher capBus) : base(options, mediator, capBus)
+        public OrderingDbContext(DbContextOptions options, IMediator mediator, ICapPublisher capBus)
+            : base(options, mediator, capBus)
         {
         }
 

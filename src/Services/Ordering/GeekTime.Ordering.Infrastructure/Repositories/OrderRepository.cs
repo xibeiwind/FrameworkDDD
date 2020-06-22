@@ -3,9 +3,9 @@ using GeekTime.Ordering.Domain.OrderAggregate;
 
 namespace GeekTime.Ordering.Infrastructure.Repositories
 {
-    public class OrderRepository : Repository<Order, long, OrderingContext>, IOrderRepository
+    public class OrderRepository : Repository<Order, long, OrderingDbContext>, IOrderRepository
     {
-        public OrderRepository(OrderingContext context) : base(context)
+        public OrderRepository(OrderingDbContext context) : base(context)
         {
         }
     }

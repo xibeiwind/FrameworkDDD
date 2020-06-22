@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using GeekTime.Mobile.ApiAggregator.Services;
-using Microsoft.AspNetCore.Http;
+﻿using GeekTime.Mobile.ApiAggregator.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GeekTime.Mobile.ApiAggregator.Controllers

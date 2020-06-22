@@ -1,5 +1,4 @@
 ﻿using DotNetCore.CAP;
-using GeekTime.Domain;
 using GeekTime.Infrastructure.Core.Extensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -10,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace GeekTime.Infrastructure.Core
 {
-    public class EFContext : DbContext, IUnitOfWork, ITransaction
+    public class DomainDbContext : DbContext, IUnitOfWork, ITransaction
     {
         protected IMediator _mediator;
         ICapPublisher _capBus;
 
-        public EFContext(DbContextOptions options, IMediator mediator, ICapPublisher capBus) : base(options)
+        public DomainDbContext(DbContextOptions options, IMediator mediator, ICapPublisher capBus) : base(options)
         {
             _mediator = mediator;
             _capBus = capBus;
@@ -45,7 +44,8 @@ namespace GeekTime.Infrastructure.Core
         public async Task CommitTransactionAsync(IDbContextTransaction transaction)
         {
             if (transaction == null) throw new ArgumentNullException(nameof(transaction));
-            if (transaction != _currentTransaction) throw new InvalidOperationException($"Transaction {transaction.TransactionId} is not current");
+            if (transaction != _currentTransaction)
+                throw new InvalidOperationException($"Transaction {transaction.TransactionId} is not current");
 
             try
             {

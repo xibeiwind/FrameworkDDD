@@ -1,5 +1,6 @@
+using Exceptionless;
 using GeekTime.Ordering.API.Extensions;
-using GeekTime.Infrastructure;
+using GeekTime.Ordering.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
@@ -10,14 +11,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Prometheus;
 using System;
 using System.IO;
 using System.Reflection;
-using Exceptionless;
-using GeekTime.Ordering.Infrastructure;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.Extensions.Logging;
-using Prometheus;
 
 namespace GeekTime.Ordering.API
 {
@@ -102,7 +99,7 @@ namespace GeekTime.Ordering.API
             //app.UseHttpsRedirection();
             using (var scope = app.ApplicationServices.CreateScope())
             {
-                var dc = scope.ServiceProvider.GetService<OrderingContext>();
+                var dc = scope.ServiceProvider.GetService<OrderingDbContext>();
                 //dc.Database.EnsureCreated();
             }
 

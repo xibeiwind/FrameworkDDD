@@ -20,9 +20,11 @@ namespace GeekTime.Ordering.API.Extensions
         }
 
 
-        public static IServiceCollection AddDomainContext(this IServiceCollection services, Action<DbContextOptionsBuilder> optionsAction)
+        public static IServiceCollection AddDomainContext(
+            this IServiceCollection services,
+            Action<DbContextOptionsBuilder> optionsAction)
         {
-            return services.AddDbContext<OrderingContext>(optionsAction);
+            return services.AddDbContext<OrderingDbContext>(optionsAction);
         }
 
         public static IServiceCollection AddInMemoryDomainContext(this IServiceCollection services)
@@ -52,7 +54,7 @@ namespace GeekTime.Ordering.API.Extensions
             services.AddTransient<ISubscriberService, SubscriberService>();
             services.AddCap(options =>
             {
-                options.UseEntityFramework<OrderingContext>();
+                options.UseEntityFramework<OrderingDbContext>();
 
                 options.UseRabbitMQ(options =>
                 {

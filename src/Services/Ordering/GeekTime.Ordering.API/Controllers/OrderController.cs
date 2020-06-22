@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using GeekTime.Ordering.API.Application.Commands;
+using GeekTime.Ordering.API.Application.Queries;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using GeekTime.Ordering.API.Application.Commands;
-using MediatR;
-using Microsoft.AspNetCore.Authorization;
-using GeekTime.Ordering.API.Application.Queries;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace GeekTime.Ordering.API.Controllers
 {

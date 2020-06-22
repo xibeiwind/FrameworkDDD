@@ -1,7 +1,4 @@
 ﻿using GeekTime.Domain;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -19,7 +16,9 @@ namespace GeekTime.Infrastructure.Core
     }
 
 
-    public interface IRepository<TEntity, TKey> : IRepository<TEntity> where TEntity : Entity<TKey>, IAggregateRoot
+    public interface IRepository<TEntity, TKey>
+        : IRepository<TEntity>
+        where TEntity : Entity<TKey>, IAggregateRoot
     {
         bool Delete(TKey id);
         Task<bool> DeleteAsync(TKey id, CancellationToken cancellationToken = default);

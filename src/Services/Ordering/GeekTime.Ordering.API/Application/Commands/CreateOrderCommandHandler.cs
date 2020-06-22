@@ -1,13 +1,9 @@
-﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using DotNetCore.CAP;
+using GeekTime.Ordering.Domain.OrderAggregate;
+using GeekTime.Ordering.Infrastructure.Repositories;
+using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
-using GeekTime.Ordering.Infrastructure.Repositories;
-using GeekTime.Ordering.Domain.OrderAggregate;
-using DotNetCore.CAP;
-using GeekTime.Ordering.API.Application.IntegrationEvents;
 
 namespace GeekTime.Ordering.API.Application.Commands
 {
